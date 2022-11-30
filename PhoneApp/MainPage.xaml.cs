@@ -1,4 +1,6 @@
-﻿namespace PhoneApp;
+﻿using Microsoft.Maui.Storage;
+
+namespace PhoneApp;
 
 public partial class MainPage : ContentPage
 {
@@ -7,6 +9,29 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+		txtName.Text = Preferences.Get("UserName", "");
+		DateTime lastreg = Preferences.Get("LastRegister", DateTime.Now);
+		lblDateTime.Text = lastreg.ToString();
+	}
+
+	public void RegisterClicked(object sender, EventArgs e)
+	{
+		//TODO: Register user
+		Preferences.Set("UserName", txtName.Text);
+		Preferences.Set("LastRegister", DateTime.Now);
+	}
+
+	public void LogoutClicked(object sender, EventArgs e) 
+	{
+		//TODO: Logout User
+		Preferences.Clear();
+		// Alternative is to remove inidividual keys
+		if (Preferences.ContainsKey("UserName"))
+		{
+			Preferences.Remove("UserName");
+			// Clear UI to show removed
+			txtName.Text = String.Empty;
+		}
 	}
 
 	public void OnTranslate(object sender, EventArgs e)
