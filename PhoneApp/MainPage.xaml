@@ -4,8 +4,8 @@
              x:Class="PhoneApp.MainPage">
 
     <VerticalStackLayout Spacing="15"  Padding="20">
-        <Label Text="Enter A Phoneword" FontSize="20" />
-        <Entry x:Name="PhoneNumberText" Text="1-555-NETMAUI02" />
+        <Label Text="Enter A Phone-word" FontSize="20" />
+        <Entry x:Name="PhoneNumberText" Text="1-666-NETMAUI02" />
         <Button x:Name="TranslateButton" Text="Translate" Clicked="OnTranslate" />
         <Button x:Name="CallButton" Text="Call" Clicked="OnCall" />
     </VerticalStackLayout>
